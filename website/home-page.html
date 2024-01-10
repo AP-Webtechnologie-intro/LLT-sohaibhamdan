@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MegaDex</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <!-- Bootstrap CSS icons: https://icons.getbootstrap.com/#usage -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- JavaScript: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- eigen geschreven css voor jouw html-bestand -->
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="PokéApi/PokéApi.js" defer></script>
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <section class="container">
+      <a class="navbar-brand" href="home-page.html">
+        <img src="images/fontbolt.png" alt="MegaDex" width="150" height="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <section class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5500/home-page.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-page.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.pokemoncenter.com/">Shop</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Species
+            </a>
+            <article class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Introduced in X&Y</a>
+              <a class="dropdown-item" href="#">Introduced in Omega ruby & Alpha sapphire</a>
+            </article>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact-page.html">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="type to search" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </section>
+    </section>
+  </nav>
+
+
+  <!-- Bootstrap Carousel -->
+  <section id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <article class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </article>
+    <article class="carousel-inner">
+      <!-- Wrap the entire carousel-item in an anchor tag with the link -->
+      <a href="https://youtu.be/uyMxQl-PeJE?si=KSz1IZuo__y96AbL" target="_blank" class="carousel-item active">
+        <img src="images/pokemon paldean winds.jpg" class="d-block w-100" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Watch now!</h5>
+          <p>click on this image to watch the first episode of pokemon paldean winds on youtube</p>
+        </div>
+      </a>
+      <div class="carousel-item">
+        <!-- Replace this placeholder content with your actual image URL -->
+        <img src="images/banner kalos.jpg" class="d-block w-100" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>the iconic starters in their mega evolution</h5>
+          <p class="text-danger-emphasis">the evolved vertions of the gen 1 starters are very strong when you compare their stats to their normal forms</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!-- Replace this placeholder content with your actual image URL -->
+        <img src="images/wallpaperflare.com_wallpaper.jpg" class="d-block w-100" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+    </article>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </section>
+
+  <section class="container mt-5">
+    <h2 class="text-center">Current Mega Pokémon</h2>
+    <p>&nbsp;</p>   
+    <!-- Table for Mega Pokémon -->
+    <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Mega Evolutions:</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            <img src="Mega Pokémon/mega venusaur.gif" alt="Mega Venusaur">
+            <p>#003: Mega Venusaur</p>
+            <img src="types/grass.gif" alt="grass">
+            <img src="types/poison.gif" alt="poison">
+          </td>
+          <td>
+            <a href="charizard-x.html">
+              <img src="Mega Pokémon/mega charizard x.gif" alt="Mega Charizard x">
+              <p>#006: Mega Charizard x</p>
+              <img src="types/fire.gif" alt="fire">
+              <img src="types/dragon.gif" alt="dragon">
+            </a>
+          </td>
+          <td>
+            <a href="charizard-y.html">
+              <img src="Mega Pokémon/mega charizard y.gif" alt="Mega Charizard y" href="charizard-y.html">
+              <p>#006: Mega Charizard y</p>
+              <img src="types/fire.gif" alt="fire">
+              <img src="types/flying.gif" alt="flying">
+            </a>
+          </td>
+          <td>
+            <img src="Mega Pokémon/mega blastoise.gif" alt="Mega Blastoise">
+            <p>#009: Mega Blastoise</p>
+            <img src="types/water.gif" alt="water">
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            <img src="Mega Pokémon/Mega Beedrill.gif" alt="Mega Beedrill">
+            <p>#0015: Mega Beedrill</p>
+              <img src="types/bug.gif" alt="bug">
+              <img src="types/bug.gif" alt="bug">
+            
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Pidgeot.gif" alt="Mega Pidgeot">
+            <p>#0018: Mega Pidgeot</p>
+              <img src="types/normal.gif" alt="normal">
+              <img src="types/flying.gif" alt="flying">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Alakazam.gif" alt="Mega Alakazam">
+            <p>#0065: Mega Alakazam</p>
+              <img src="types/psychic.gif" alt="psychic">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Slowbro.gif" alt="Mega Slowbro">
+            <p>#0080: Mega Slowbro</p>
+              <img src="types/water.gif" alt="water">
+              <img src="types/psychic.gif" alt="psychic">
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            <img src="Mega Pokémon/Mega Gengar.gif" alt="Mega Gengar">
+            <p>#0094: Mega Gengar</p>
+              <img src="types/ghost.gif" alt="ghost">
+              <img src="types/poison.gif" alt="poison">
+          </td>
+          <td>
+            <img src="Mega Pokémon/mega kangaskhan.gif" alt="Mega Kangaskhan">
+            <p>#0115: Mega Kangaskhan</p>
+              <img src="types/normal.gif" alt="normal">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Pinsir.gif" alt="Mega Pinsir">
+            <p>#0127: Mega Pinsir</p>
+              <img src="types/bug.gif" alt="bug">
+              <img src="types/flying.gif" alt="flying">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Gyarados.gif" alt="Mega Gyarados">
+            <p>#0130: Mega Gyarados</p>
+              <img src="types/water.gif" alt="water">
+              <img src="types/dark.gif" alt="dark">
+          </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>
+              <img src="Mega Pokémon/Mega Aerodactyl.gif" alt="Mega Aerodactyl">
+              <p>#0142: Mega Aerodactyl</p>
+              <img src="types/rock.gif" alt="rock">
+              <img src="types/flying" alt="flying">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Mewtwo x.gif" alt="Mega Mewtwo x">
+              <p>#0150: Mega Mewtwo x</p>
+              <img src="types/psychic.gif" alt="psychic">
+              <img src="types/fight.gif" alt="fight">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Mewtwo y.gif" alt="Mega Mewtwo y">
+              <p>#0150: Mega Mewtwo y</p>
+              <img src="types/psychic.gif" alt="psychic">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Ampharos.gif" alt="Mega Ampharos">
+              <p>#0181: Mega Ampharos</p>
+              <img src="types/electric.gif" alt="electric">
+              <img src="types/dragon.gif" alt="dragon">
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>
+              <img src="Mega Pokémon/Mega Steelix.png" alt="Mega Steelix">
+              <p>#0208: Mega Steelix</p>
+              <img src="types/steel.gif" alt="steel">
+              <img src="types/ground.gif" alt="ground">
+            </td>
+            <td>
+              <img src="Mega Pokémon/mega scizor.gif" alt="Mega scizor">
+              <p>#0212: Mega scizor</p>
+              <img src="types/bug.gif" alt="bug">
+              <img src="types/steel.gif" alt="steel">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Herracross.gif" alt="Mega Herracross">
+              <p>#0214: Mega Herracross</p>
+              <img src="types/bug.gif" alt="bug">
+              <img src="types/fight.gif" alt="fight">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Houndoom.png" alt="Mega Houndoom">
+              <p>#0229: Mega Houndoom</p>
+              <img src="types/dark.gif" alt="dark">
+              <img src="types/fire.gif" alt="fire">
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>
+              <img src="Mega Pokémon/Mega Tyranitar.png" alt="Mega Tyranitar">
+              <p>#0248: Mega Tyranitar</p>
+              <img src="types/rock.gif" alt="rock">
+              <img src="types/dark.gif" alt="dark">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Sceptile.png" alt="Mega Sceptile">
+              <p>#0254: Mega Sceptile</p>
+              <img src="types/grass.gif" alt="grass">
+              <img src="types/dragon.gif" alt="dragon">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Blaziken.gif" alt="Mega Blaziken">
+              <p>#0257: Mega Blaziken</p>
+              <img src="types/fire.gif" alt="fire">
+              <img src="types/fight.gif" alt="fight">
+            </td>
+            <td>
+              <img src="Mega Pokémon/Mega Swampert.gif" alt="Mega Swampert">
+              <p>#0260: Mega Swampert</p>
+              <img src="types/water.gif" alt="water">
+              <img src="types/ground.gif" alt="ground">
+            </td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>
+            <img src="Mega Pokémon/Mega Gardevoir.gif" alt="Mega Gardevoir">
+            <p>#0282: Mega Gardevoir</p>
+              <img src="types/psychic.gif" alt="psychic">
+              <img src="types/fairy.gif" alt="fairy">
+          </td>
+          <td>
+            <img src="Mega Pokémon/mega sableye.gif" alt="Mega sableye">
+            <p>#0302: Mega sableye</p>
+              <img src="types/dark.gif" alt="dark">
+              <img src="types/ghost.gif" alt="ghost">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Mawile.gif" alt="Mega Mawile">
+            <p>#0303: Mega Mawile</p>
+              <img src="types/steel.gif" alt="steel">
+              <img src="types/fairy.gif" alt="fairy">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Aggron.gif" alt="Mega Aggron">
+            <p>#0306: Mega Aggron</p>
+              <img src="types/steel.gif" alt="steel">
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>
+            <img src="Mega Pokémon/Mega Medicham.gif" alt="Mega Medicham">
+            <p>#009: Mega Medicham</p>
+              <img src="types/fight.gif" alt="fight">
+              <img src="types/psychic.gif" alt="psychic">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Manectric.gif" alt="Mega Manectric">
+            <p>#0310: Mega Manectric</p>
+              <img src="types/electric.gif" alt="electric">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Sharpedo.gif" alt="Mega Sharpedo">
+            <p>#0319: Mega Sharpedo</p>
+              <img src="types/water.gif" alt="water">
+              <img src="types/dark.gif" alt="dark">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Camerupt.gif" alt="Mega Camerupt">
+            <p>#0323: Mega Camerupt</p>
+              <img src="types/fire.gif" alt="fire">
+              <img src="types/ground.gif" alt="ground">    
+          </td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>
+            <img src="Mega Pokémon/Mega Altaria.gif" alt="Mega Altaria">
+            <p>#0334: Mega Altaria</p>
+              <img src="types/dragon.gif" alt="dragon">
+              <img src="types/fairy.gif" alt="fairy">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Banette.gif" alt="Mega Banette">
+            <p>#0354: Mega Banette</p>
+              <img src="types/ghost.gif" alt="ghost"> 
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Absol.gif" alt="Mega Absol">
+            <p>#0359: Mega Absol</p>
+              <img src="types/dark.gif" alt="dark">
+          <td>
+            <img src="Mega Pokémon/Mega Glalie.gif" alt="Mega Glalie">
+            <p>#0362: Mega Glalie</p>
+              <img src="types/ice.gif" alt="ice">   
+          </td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>
+            <img src="Mega Pokémon/Mega Salamance.gif" alt="Mega Salamance">
+            <p>#0373: Mega Salamance</p>
+              <img src="types/dragon.gif" alt="dragon">
+              <img src="types/flying.gif" alt="Sflying">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Metagross.png" alt="Mega Metagross">
+            <p>#0376: Mega Metagross</p>
+              <img src="types/steel.gif" alt="steel">
+              <img src="types/psychic.gif" alt="psychic">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Latias.gif" alt="Mega Latias">
+            <p>#0380: Mega Latias</p>
+              <img src="types/dragon.gif" alt="dragon">
+              <img src="types/psychic.gif" alt="psychic">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Latios.gif" alt="Mega Latios">
+            <p>#0381: Mega Latios</p>
+            <img src="types/dragon.gif" alt="dragon">
+            <img src="types/psychic.gif" alt="psychic">    
+          </td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>
+            <img src="Mega Pokémon/Mega Rayquaza.png" alt="Mega Rayquaza">
+            <p>#0384: Mega Rayquaza</p>
+              <img src="types/dragon.gif" alt="dragon">
+              <img src="types/flying.gif" alt="flying">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Lopunny.gif" alt="Mega Lopunny">
+            <p>#0428: Mega Lopunny</p>
+              <img src="types/normal.gif" alt="normal">
+              <img src="types/fight.gif" alt="fight">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Garchomp.gif" alt="Mega Garchomp">
+            <p>#0445: Mega Garchomp</p>
+              <img src="types/dragon.gif" alt="dragon">
+              <img src="types/grass.gif" alt="ground">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Lucario.gif" alt="Mega Lucario">
+            <p>#0448: Mega Lucario</p>
+              <img src="types/fight.gif" alt="fight">
+              <img src="types/steel.gif" alt="steel">    
+          </td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>
+            <img src="Mega Pokémon/Mega Abomasnow.gif" alt="Mega Abomasnow">
+            <p>#0460: Mega Abomasnow</p>
+              <img src="types/grass.gif" alt="grass">
+              <img src="types/ice.gif" alt="ice">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Gallade.gif" alt="Mega Gallade">
+            <p>#0475: Mega Gallade</p>
+              <img src="types/psychic.gif" alt="psychic">
+              <img src="types/fairy.gif" alt="fairy">    
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Audino.png" alt="Mega Audino">
+            <p>#0531: Mega Audino</p>
+              <img src="types/normal.gif" alt="normal">
+          </td>
+          <td>
+            <img src="Mega Pokémon/Mega Diancie.gif" alt="Mega Diancie">
+            <p>#0719: Mega Diancie</p>
+              <img src="types/rock.gif" alt="rock">
+              <img src="types/fairy.gif" alt="fairy">    
+          </td>
+        </tr>
+      </tbody>
+    </table>    
+  </section>
+  
+  <section class="mb-4">&nbsp;</section>
+  <section class="mb-4">&nbsp;</section>
+
+  <footer class="container-fluid text-center h6 small p-4">
+    &copy; MegaDex team
+  </footer>
+  <section class="fixed-bottom bg-light p-2 d-flex justify-content-center">
+    <ul class="list-inline socials m-0">
+      <li class="list-inline-item">
+        <a href="https://www.youtube.com" target="_blank">
+          <i class="fs-2 bi-youtube"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fs-2 bi-instagram"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fs-2 bi-facebook"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="https://twitter.com/" target="_blank">
+          <i class="fs-2 bi-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="container-fluid text-center h6 small p-4">
+    &copy; MegaDex team
+  </footer>
+    
+</body>
+</html>
